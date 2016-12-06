@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用a href=“javascript:fn1()”</title>
+	<style>
+		*{
+			text-decoration: none;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color:#54EE57;
+		}
+		.hide{
+			display: none;
+		}
+		a{
+			color: #959595;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">啦啦啦啦</div>
+	<a href="javascript:hidebox()">点击我见证奇迹</a>
+	<a href="javascript:changecolor()">换颜色</a>
+	<script>
+		function hidebox() {
+			// 通过classlist属性
+			// document.querySelector(".box").classList.add("hide");
+
+			// 通过style.display的方法
+			document.querySelector(".box").style.display="none";
+			document.querySelector("a").href="javascript:showbox()";
+
+		}
+		function showbox () {
+			document.querySelector(".box").setAttribute("style", "display:block");
+			document.querySelector("a").setAttribute("href", "javascript:hidebox()")
+		}
+		function changecolor () {
+			document.querySelector(".box").style.backgroundColor="red";
+		}
+	</script>
+</body>
+</html>
